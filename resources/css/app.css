@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
+@import "tailwindcss";
+@source "../views";
+
+@theme {
+    --color-blue: #4A90E2;
+    --color-snow: #F9FAFB;
+    --font-geologica: "Geologica", sans-serif;
+}
