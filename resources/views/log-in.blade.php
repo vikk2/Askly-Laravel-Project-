@@ -5,11 +5,13 @@
     <div class="flex justify-center items-center">
         <div class="w-full max-w-lg bg-white p-8 rounded-4xl shadow-lg">
             <div class="text-center font-geologica mb-8">
-                <h1 class="font-bold text-4xl text-slate-700">Welcome to <span class="text-blue">Askly</span></h1>
-                <p class="text-slate-500 mt-2 text-md font-medium">Log in to your Askly account</p>
+                <img src="{{ asset('img/askly-logo1.png')}}" alt="askly_logo" class="w-12 h-12 mx-auto">
+                <h1 class="font-bold text-4xl text-slate-700 mt-5">Welcome to <span class="text-blue">Askly</span></h1>
+                <!-- <h2 class="text-slate-700 mt-4 text-xl font-medium">Log in to your Askly account</h2> -->
             </div>
 
-            <form action="/register-submit" method="post" class="space-y-5">
+            
+            <form action="/login" method="post" class="space-y-5 font-geologica">
                 @csrf
                 <!-- first name and last name -->
                     <div>
@@ -25,9 +27,15 @@
                             class="w-full mt-1 px-4 py-2 border border-blue rounded-xl focus:ring focus:ring-blue-200 focus:outline-none placeholder-stone-400 font-medium" />
                     </div>
 
-                    <!-- Remember Me & Forgot Password -->
+                <!-- error message -->
+                    @error('email')
+                        <div class="text-red-400 text-sm font-geologica">{{ $message }}</div>
+                    @enderror
+                    
+
+                    <!-- Forgot Password -->
                     <div class="flex justify-between items-center text-md">
-                        <a href="/forgot-password" class="text-blue hover:underline font-geologica">Forgot password?</a>
+                        <a href="{{ route('password.request') }}" class="text-blue hover:underline font-geologica">Forgot password?</a>
                     </div>
 
                     <!-- Submit Button -->
@@ -39,17 +47,17 @@
                     </div>
 
                     <!-- OR Divider -->
-                    <div class="relative">
+                    <!-- <div class="relative">
                         <div class="absolute inset-0 flex items-center">
                         <div class="w-full border-t border-gray-300"></div>
                         </div>
                         <div class="relative flex justify-center text-md text-gray-500">
                         <span class="bg-white px-2 font-geologica">or</span>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Google Login -->
-                    <a href="#"
+                    <!-- <a href="#"
                         class="flex items-center justify-center gap-3 border border-gray-300 rounded-xl px-5 py-2 hover:bg-gray-50 transition duration-200 text-gray-700 font-semibold text-sm">
                         <svg class="w-5 h-5" viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">
                         <path fill="#4285F4" d="M533.5 278.4c0-17.6-1.5-34.6-4.3-51H272v96.6h146.9c-6.3 33.7-25 62.3-53.4 81.5v67h86.2c50.5-46.5 79.8-115 79.8-194.1z"/>
@@ -58,7 +66,7 @@
                         <path fill="#EA4335" d="M272 107.7c39.5-.6 77.5 14.4 106.4 41.3l79.8-79.8C403.2 24 345.2 0 272 0 170 0 85.6 60.2 49.5 146.8l89.5 70.7c21.4-64.6 81.3-112.3 133-109.8z"/>
                         </svg>
                         <span>Continue with Google</span>
-                    </a>
+                    </a> -->
 
                     <!-- Sign Up Prompt -->
                     <p class="text-center text-sm text-gray-600 mt-4 font-geologica">

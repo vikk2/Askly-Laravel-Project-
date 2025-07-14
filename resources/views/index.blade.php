@@ -6,12 +6,12 @@
    @section('content')
   <section class="mt-50">
     <div class="text-center font-geologica">
-      <h1 class="font-bold text-4xl text-slate-700">Welcome to <span class="text-blue">Askly</span></h1>
-      <h2 class="font-medium text-slate-600">Find answers to what you're curious about</h2>
+      <h1 class="font-bold text-5xl text-slate-700">Welcome to <span class="text-blue">Askly</span></h1>
+      <h2 class="font-medium text-slate-600 text-lg">Find answers to what you're curious about</h2>
       
        <!-- Search Bar -->
       <div class="w-[553px] h-11 border-[1.5px] flex items-center rounded-[60px] border-blue bg-gray-50 px-4 mt-6 mx-auto shadow-xl">
-        <input type="text" placeholder="Search knowledge base" class="w-full bg-transparent focus:outline-none text-sm font-geologica font-semibold"/>
+        <input type="text" placeholder="Search knowledge base" class="w-full bg-transparent focus:outline-none text-md font-geologica font-medium "/>
         <i class="fa-solid fa-magnifying-glass" style="color: #4A90E2;"></i>
       </div>
       <div class="mt-6 text-center">
@@ -37,11 +37,11 @@
       </div>
     </div> -->
 
-    <div class="text-2xl font-geologica font-bold text-[#A9D7F3] mt-30 bg-blue w-98 ml-10 rounded-full h-15 items-center flex pl-6 shadow-sm">
+    <div class="text-3xl font-geologica font-bold text-slate-700 mt-30 w-98 ml-10 items-center flex">
       <h2>Popular Articles</h2>
     </div>
 
-    <div class="grid grid-cols-4 gap-6 ml-10 mt-12 " >
+    <div class="grid grid-cols-4 gap-6 ml-10 mt-8 " >
 
       <!-- Article 1 -->
       <div class="max-w-sm bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition h-min">

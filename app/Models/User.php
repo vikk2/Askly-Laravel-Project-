@@ -16,10 +16,17 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'user_id';
+    
     protected $fillable = [
-        'name',
+        'firstName',
+        'lastName',
         'email',
-        'password',
+        'username',
+        'password_hash',
+        'profile_picture_url',
+        'bio',
+        'expertise',
     ];
 
     /**
@@ -28,7 +35,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'password_hash',
         'remember_token',
     ];
 
@@ -41,7 +48,23 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password_hash' => 'hashed',
+            'expertise' => 'array',
         ];
+    }
+
+    public function articles()
+    {
+        return $this->hasMany(\App\Models\Article::class, 'user_id', 'user_id');
+    }
+
+    public function getAuthPassword()
+    {
+        return $this->password_hash; // or password_harsh if that’s your exact column name
+    }
+
+    public function getIdAttribute()
+    {
+        return $this->attributes['user_id'];
     }
 }
