@@ -11,13 +11,6 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $primaryKey = 'user_id';
-    
     protected $fillable = [
         'firstName',
         'lastName',
@@ -29,21 +22,11 @@ class User extends Authenticatable
         'expertise',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password_hash',
         'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
     protected function casts(): array
     {
         return [
@@ -55,16 +38,12 @@ class User extends Authenticatable
 
     public function articles()
     {
-        return $this->hasMany(\App\Models\Article::class, 'user_id', 'user_id');
+        return $this->hasMany(\App\Models\Article::class);
     }
 
     public function getAuthPassword()
     {
-        return $this->password_hash; // or password_harsh if that’s your exact column name
-    }
-
-    public function getIdAttribute()
-    {
-        return $this->attributes['user_id'];
+        return $this->password_hash;
     }
 }
+
